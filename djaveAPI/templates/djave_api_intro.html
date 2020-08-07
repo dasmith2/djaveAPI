@@ -1,0 +1,54 @@
+<style>
+.api_docs table, p { max-width: 778px; }
+p, table { margin: 15px 0px 0px 0px; }
+.api_docs pre { max-width: 757px; overflow: auto; }
+h1 { margin-top: 60px; }
+.examples { display: none; }
+</style>
+
+<h1>Welcome to the API</h1>
+<div class="margin-top-half">
+  <p>It speaks JSON and uses basic authentication.</p>
+  <p>
+    You can read and write any important object on demand using good old
+    fashioned GET and POST requests.
+  </p>
+  <p>
+    You can subscribe to webhooks and we'll let you know when any important
+    object changes in any way.
+  </p>
+  <p>
+    You can get your very own "API Key username" and "API Key password" and
+    tell us where to send webhooks under the "Settings" link in the upper
+    right hand corner when you're logged in.
+  </p>
+  <p>
+    The API is rate limited to one request a second. If you exceed the rate
+    limit, you'll get a response with status code 429.
+  </p>
+</div>
+
+<script>
+
+$(function() {
+  $('.show_or_hide_examples').click(function() {
+    if ($(this).attr('data-shown') == 'false') {
+      show_examples($(this));
+    } else {
+      hide_examples($(this));
+    }
+  });
+});
+
+function hide_examples(button) {
+  button.attr('data-shown', 'false');
+  $('.' + button.attr('data-shows')).hide();
+  button.text('Show examples');
+}
+
+function show_examples(button) {
+  button.attr('data-shown', 'true');
+  $('.' + button.attr('data-shows')).show();
+  button.text('Hide examples');
+}
+</script>

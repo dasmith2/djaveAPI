@@ -1,0 +1,38 @@
+<div class="api_docs">
+
+<h1>{{ model_name }}</h1>
+
+<div class="p_block">
+  <p>{{ model_description }}</p>
+</div>
+
+{{ fields_table.as_html }}
+
+<div class="margin-top">
+  <button
+      class="show_or_hide_examples"
+      data-shown="false"
+      data-shows="{{ model_name_lower }}_examples"
+      id="show_or_hide_{{ model_name_lower }}_examples">Show examples</button>
+</div>
+
+<div class="examples {{ model_name_lower }}_examples">
+{% for example in examples %}
+
+<div class="example">
+
+<h2>{{ example.title }}</h2>
+{% comment %}Leave this pre at this indent or the actual visual code examples will be indented{% endcomment %}
+<pre>
+{{ example.code }}{% if example.result %}
+
+# That will return something like
+
+{{ example.result }}
+{% endif %}</pre>
+</div>
+
+{% endfor %}
+
+</div>
+</div>

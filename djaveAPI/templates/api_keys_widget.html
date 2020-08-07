@@ -1,0 +1,10 @@
+{% if title %}
+  <h2>{{ title }}</h2>
+{% endif %}
+{% if description %}
+  <p>{{ description }}</p>
+{% endif %}
+<form method="POST">
+  {% csrf_token %}
+  {{ new_api_key_table.as_html }}
+</form>
